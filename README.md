@@ -37,7 +37,9 @@ For Wasserstein Gaussianization:
 --t_w                           Smoothing window for calculation of Lower Bound
 
 In case you want to run the speedup version, please find below a brief walk-through of how to run rBSL-WG for alpha-stable example:
+
 1. Make sure the folder `functions_robust_wasserstein` are in the same directory as the file you want to run, in this case, `vbsl_mcmc_va_speedup_wasserstein.ipynb`
+
 2. Run `from functions_robust_wasserstein.f_var_adjust_ss_wasserstein import (alpha_stable, alpha_stable_ss, wasserstein_transform, summary_statistics, variance_adjustment_summary_statistics)` and `from functions_robust_wasserstein.f_gradient_lb_wasserstein import (fun_gradient_lb)`
 ```
 
