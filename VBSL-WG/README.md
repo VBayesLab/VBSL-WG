@@ -29,7 +29,8 @@ Arguments to adjust for general VBSL:
 
 For Wasserstein Gaussianization:
 
---patience_max                  Maximal number of iterations after which the model no longer improves
+--num_layers                    Number of layers for the normalizing flow
+--Patience                      Maximal number of iterations after which the model no longer improves
 --stop                          When to stop training Wasserstein Gaussianization
 --eps                           Learning rate for Wasserstein Gaussianization training
 --t_w                           Smoothing window for calculation of Lower Bound
@@ -51,7 +52,7 @@ We included both the MATLAB version and Python version. Please run the Python ve
 
 1. For original VBSL: Run `vbsl_toy.ipynb`
 2. For rBSL: Run `vbsl_ma_nuissance_toy.ipynb`
-3. For VBSL-WG and rBSL-WG: Run `vbsl_ma_nuissance_wasserstein_with_mcmc_toy.ipynb`
+3. For VBSL-WG and rBSL-WG: Run `norm_vbsl_jax_v3_nf_nuissance_wo_tau.ipynb`
 
 II. alpha-stable distribution
 
@@ -59,6 +60,7 @@ II. alpha-stable distribution
 2. For rBSL:
 - Make sure the folder `functions` are in the same directory as the file you want to run, in this case, `vbsl_mcmc_ma_speedup_nuissance.ipynb`
 - Run `from f_mean_adjust_ss import (alpha_stable, alpha_stable_ss, summary_statistics, mean_adjustment_summary_statistics)` and `from f_gradient_lb_mean_nuissance import (fun_gradient_lb, prior, mean_adjustment_unbiased_log_likelihood, nuissance_mean_adjustment_unbiased_log_likelihood)`
+______ For mixture models:
 3. For VBSL-WG:
 - Make sure the folder `functions_wasserstein` are in the same directory as the file you want to run, in this case, `vbsl_speedup_wasserstein.ipynb`
 - Run `from f_ss_wasserstein import (alpha_stable, alpha_stable_ss, wasserstein_transform, summary_statistics)` and `from f_gradient_lb_wasserstein import (fun_gradient_lb)`
@@ -67,13 +69,18 @@ II. alpha-stable distribution
 - Run `from f_mean_adjust_ss_wasserstein import (alpha_stable, alpha_stable_ss, summary_statistics, mean_adjustment_summary_statistics)` and `from f_gradient_lb_wasserstein import (fun_gradient_lb)`
 
 !!!!! Note that we can reduce computational time significantly by running the notebooks with JAX. Please find the files for selected methods in the folder `jax version.`
+______ For normalizing flow:
+3. For VBSL-WG and rBSL-WG: Run `vbsl_jax_v3_nf_nuissance_prec.ipynb`
 
 III. g-and-k model
 
 1. For original VBSL: Run `vbsl_gnk.ipynb`
 2. For rBSL: Run `vbsl_ma_nuissance.ipynb`
+______ For mixture models:
 3. For VBSL-WG: Run `vbsl_wasserstein_gnk.ipynb`
 4. For rBSL-WG: Run `vbsl_ma_nuissance_wasserstein_with_mcmc.ipynb`
+______ For normalizing flow:
+3. For VBSL-WG and rBSL-WG: Run `vbsl_jax_v3_nf_nuissance_gnk_prec_wo_tau.ipynb`
 
 !!!!! Note that we can reduce computational time significantly by running the notebooks with JAX. Please find the files for selected methods in the folder `jax version.` The JAX versions implement reparameterization of parameters differently from the non-JAX versions. We collect the results from JAX versions.
 
@@ -81,8 +88,14 @@ IV. Toads' movement model
 
 1. For original VBSL: Run `vbsl_toad.ipynb`
 2. For rBSL: Run `robustvbsl_robust_ma_toad.ipynb`
+______ For mixture models:
 3. For VBSL-WG and rBSL-WG:
 - Make sure the folder `functions_robust_wasserstein_toad` are in the same directory as the file you want to run, in this case, `vbsl_ma_speedup_nuissance_wasserstein_toad.ipynb`
 - Run `from f_mean_adjust_ss_wasserstein_toad import (toad, compute_summaries, compute_summaries_stacked, mean_adjustment_summary_statistics)` and `from f_gradient_lb_mean_wasserstein_nuissance_toad import (fun_gradient_lb)`
+______ For mixture models:
+3. For VBSL-WG:
+- Make sure the folder `functions_robust_wasserstein_toad` are in the same directory as the file you want to run, in this case, `vbsl_nf_toad_without_tau.ipynb`
+4. For rBSL-WG:
+- Make sure the folder `functions_robust_wasserstein_toad` are in the same directory as the file you want to run, in this case, `vbsl_ma_speedup_nuissance_nf_toad_without tau.ipynb`
 ```
 
